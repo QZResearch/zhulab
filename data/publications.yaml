@@ -179,7 +179,7 @@
   year: 2023
   doi: "10.1021/acs.jcim.3c01153"
   tags: ["method development"]
-  featured: true
+  #featured: true
 
 - title: "Grid-Robust Efficient Neural Interface Model for Universal Molecule Surface Construction from Point Clouds"
   authors: "Y. Wu, H. Wei, Q. Zhu, R. Luo"

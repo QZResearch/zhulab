@@ -223,6 +223,7 @@
   pages: "6353–6365"
   year: 2023
   doi: "10.1021/acs.jctc.3c00659"
+  featured: true
   tags: ["method development", "polarisable force field"]
 
 - title: "Treating Polarization Effects in Charged and Polar Bio-Molecules Through Variable Electrostatic Parameters"

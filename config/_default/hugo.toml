@@ -7,7 +7,7 @@ theme = "blowfish"
 # http://localhost:1313/ return 404. The deploy workflow passes the real
 # Pages URL (subpath included) to Hugo with --baseURL, so production is right
 # either way.
-baseURL = "https://YOUR-ORG.github.io/"
+baseURL = "https://qzresearch.github.io/"
 defaultContentLanguage = "en"
 
 enableRobotsTXT = true

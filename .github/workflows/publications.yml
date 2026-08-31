@@ -1,0 +1,52 @@
+name: Sync publications
+
+# The trigger that does the real work is the push one: whenever
+# publications.bib changes, the YAML the site reads is regenerated and a
+# pull request is opened with the result. The monthly schedule is a safety net
+# for the case where the .bib was edited without CI running (a direct edit on
+# github.com, say), and workflow_dispatch lets you run it by hand from the
+# Actions tab.
+
+on:
+  push:
+    paths:
+      - "publications.bib"
+      - "scripts/sync_publications.py"
+  schedule:
+    - cron: "0 18 1 * *"      # 1st of the month, 04:00 Sydney (18:00 UTC prev day)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Regenerate data/publications.yaml
+        run: python3 scripts/sync_publications.py
+
+      - name: Open a pull request if anything changed
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: publications/sync
+          title: "Update publication list from publications.bib"
+          commit-message: "chore: sync publications from BibTeX"
+          body: |
+            Regenerated `data/publications.yaml` from `publications.bib`.
+
+            Hand-set fields (`featured`, `tags`, `code`, `pdf`) are preserved —
+            check the diff before merging, and add `featured: true` to anything
+            that should appear on the homepage.
+          delete-branch: true
+          add-paths: data/publications.yaml

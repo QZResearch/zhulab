@@ -1,0 +1,47 @@
+{{ define "main" }}
+  <header class="mt-5 max-w-prose">
+    {{ if .Params.showBreadcrumbs | default (site.Params.list.showBreadcrumbs | default false) }}
+      {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      {{ .Title | emojify }}
+    </h1>
+    {{ with .Content }}
+      <div class="mt-4 prose dark:prose-invert">{{ . }}</div>
+    {{ end }}
+  </header>
+
+  {{ with .Pages.ByDate.Reverse }}
+    <div class="yu-albums">
+      {{ range . }}
+        {{ $album := . }}
+        {{ $imgs := $album.Resources.ByType "image" }}
+        {{ $cover := "" }}
+        {{ with $album.Params.cover }}{{ $cover = $album.Resources.GetMatch . }}{{ end }}
+        {{ if not $cover }}{{ with $imgs }}{{ $cover = index . 0 }}{{ end }}{{ end }}
+
+        <a class="yu-album" href="{{ $album.RelPermalink }}">
+          <div class="yu-album-thumb">
+            {{ with $cover }}
+              <img
+                src="{{ (.Fill "800x520 Center q80").RelPermalink }}"
+                alt="{{ $album.Title }}"
+                loading="lazy"
+                class="nozoom" />
+            {{ end }}
+          </div>
+          <div class="yu-album-body">
+            <h2>{{ $album.Title }}</h2>
+            {{ with $album.Params.summary }}<p>{{ . }}</p>{{ end }}
+            <p class="yu-album-meta">
+              {{ with $album.Date }}{{ .Format (site.Params.dateFormat | default "2 January 2006") }} &middot; {{ end }}
+              {{ len $imgs }} photos
+            </p>
+          </div>
+        </a>
+      {{ end }}
+    </div>
+  {{ else }}
+    <p class="mt-8 text-neutral-500 dark:text-neutral-400">No albums yet.</p>
+  {{ end }}
+{{ end }}

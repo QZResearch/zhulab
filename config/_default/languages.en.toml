@@ -1,0 +1,28 @@
+disabled = false
+locale = "en"
+label = "English"
+weight = 1
+title = "Zhu Group"
+
+[params]
+  displayName = "EN"
+  isoCode = "en"
+  rtl = false
+  dateFormat = "2 January 2006"
+  # logo = "img/logo.png"
+  # secondaryLogo = "img/logo-dark.png"
+  description = "Computational modelling and coarse-grained simulations at the University of Wollongong."
+  copyright = "&copy; 2026 Zhu Group, University of Wollongong"
+
+[params.author]
+  name = "Zhu Group"
+  email = "qiangzhu@uow.edu.au"
+  image = "img/logo.png"
+  headline = "Computational modelling & coarse-grained simulations"
+  bio = "University of Wollongong"
+  links = [
+    { email = "mailto:qiangzhu@uow.edu.au" },
+    { google-scholar = "https://scholar.google.com/citations?user=FEzFWA8AAAAJ&hl=en" },
+    { orcid = "https://orcid.org/0000-0002-5612-0728" },
+    { github = "https://github.com/csu1505110121" },
+  ]

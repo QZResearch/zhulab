@@ -1,0 +1,25 @@
+{{/* Overrides Blowfish's _default/simple.html.
+
+     Identical to the theme's version except that it drops the sharing-links
+     and comments footer: pages using `layout: "simple"` here are standing
+     pages (Join us, Publications), not articles, so "Share on LinkedIn"
+     buttons don't belong at the bottom of them.
+
+     News posts still get sharing buttons — they use _default/single.html,
+     which is untouched. Control which ones appear with `sharingLinks` in
+     config/_default/params.toml. */}}
+{{ define "main" }}
+  <article class="max-w-full">
+    <header>
+      {{ if .Params.showBreadcrumbs | default (.Site.Params.article.showBreadcrumbs | default false) }}
+        {{ partial "breadcrumbs.html" . }}
+      {{ end }}
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        {{ .Title | emojify }}
+      </h1>
+    </header>
+    <section class="max-w-full mt-6 prose dark:prose-invert">
+      {{ .Content }}
+    </section>
+  </article>
+{{ end }}

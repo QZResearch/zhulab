@@ -1,0 +1,9 @@
+{{/* dict "url" "..." "label" "..." "style" "primary|outline" */}}
+{{/* A site-root path like "/join/" has to lose its leading slash before
+     relURL, because relURL leaves an already-rooted path alone — keep the
+     slash and the link drops the baseURL subpath and 404s on a GitHub
+     project site (https://org.github.io/<repo>/). */}}
+{{ $u := .url | default "#" }}
+{{ if hasPrefix $u "/" }}{{ $u = strings.TrimPrefix "/" $u | relURL }}{{ end }}
+<a class="yu-btn {{ if eq (.style | default "primary") "outline" }}yu-btn-outline{{ else }}yu-btn-primary{{ end }}"
+   href="{{ $u | safeURL }}">{{ .label | default "Learn more" }}</a>

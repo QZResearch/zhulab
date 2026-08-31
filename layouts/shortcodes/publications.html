@@ -1,0 +1,16 @@
+{{/* Usage:  {{< publications >}}  or  {{< publications featured="true" >}} */}}
+{{ $pubs := hugo.Data.publications | default slice }}
+{{ if eq (.Get "featured") "true" }}
+  {{ $pubs = where $pubs "featured" true }}
+{{ end }}
+{{ $pubs = sort $pubs "year" "desc" }}
+{{ $years := slice }}
+{{ range $pubs }}{{ $years = $years | append .year }}{{ end }}
+<div class="not-prose">
+  {{ range $year := (uniq $years) }}
+    <h2 class="mt-10 mb-2 text-xl font-extrabold">{{ $year }}</h2>
+    {{ range where $pubs "year" $year }}
+      {{ partial "yu/publication.html" . }}
+    {{ end }}
+  {{ end }}
+</div>

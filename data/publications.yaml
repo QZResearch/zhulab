@@ -1,0 +1,402 @@
+# Generated from publications.bib by scripts/sync_publications.py
+#
+# Fields the importer manages: title, authors, journal, volume, pages, year,
+# doi, url. Anything else you add here — featured, tags, code, pdf — is yours
+# and is preserved on every re-run, so mark up freely.
+#
+# Set `featured: true` to put a paper on the homepage (the top 4 by year show).
+
+- title: "Deep-Penetrating Transdermal Lipopeptide Liposomes for Sustained IL-17 Inhibition and Prevention of Psoriatic Recurrence"
+  authors: "R. Cong, S. Zhou, L. Li, F. Li, J. Ren, Q. Zhu, H. Yang, J. Tu, X. Jiang, L. Jiang"
+  journal: "Journal of the American Chemical Society"
+  volume: "148"
+  pages: "27884–27899"
+  year: 2026
+  doi: "10.1021/jacs.6c09469"
+  tags: ["mechanisms understanding"]
+
+- title: "Firefly-Geni: Automated Iteration-Guided Generative Discovery of TADF Molecules"
+  authors: "B. Zhang, X. Fang, D. Yang, Y. Wang, Y. Liu, Y. Xia, Q. Zhu, H. Yu, M. Zhu, J. Wen"
+  year: 2026
+  doi: "10.26434/chemrxiv.15005548/v1"
+  tags: ["machine learning"]
+
+- title: "Mechanistic Insights into Nanobody-Based Quenchbody Sensing via Structural Modeling and Molecular Simulations"
+  authors: "N. S. El Salamouni, J. H. Cater, Q. Zhu, L. M. Spenkelink, H. Yu"
+  journal: "Journal of Chemical Information and Modeling"
+  volume: "66"
+  pages: "2879–2888"
+  year: 2026
+  doi: "10.1021/acs.jcim.5c02969"
+  tags: ["mechanisms understanding"]
+
+- title: "N-Terminal Chirality and Sequence Variations Modulate the Conformational Landscape of Amyloid-Beta 42"
+  authors: "Q. Zhu, H. Yu"
+  journal: "Journal of Chemical Information and Modeling"
+  volume: "66"
+  pages: "10156–10167"
+  year: 2026
+  doi: "10.1021/acs.jcim.6c01001"
+  tags: ["mechanisms understanding"]
+
+- title: "Relay Storage of Protons and Zinc Ions Enables Practical High‐Mass‐Loading Organic Electrodes"
+  authors: "X. Yu, S. Yuan, L. Yan, T. Kong, K. Zhou, Y. Qi, Q. Zhu, Z. Li, P. Wang, S. Gu, J. Ma, Y. Wang"
+  journal: "Angewandte Chemie"
+  volume: "138"
+  year: 2026
+  doi: "10.1002/ange.8137922"
+  tags: ["mechanisms understanding"]
+
+- title: "Automated Refinement of Property-Specific Polarizable Gaussian Multipole Water Models Using Bayesian Black-Box Optimization"
+  authors: "Y. Wu, Q. Zhu, Z. Huang, P. Cieplak, Y. Duan, R. Luo"
+  journal: "Journal of Chemical Theory and Computation"
+  volume: "21"
+  pages: "3563–3575"
+  year: 2025
+  doi: "10.1021/acs.jctc.5c00039"
+  tags: ["machine learning"]
+
+- title: "Biomolecular Condensates as Emerging Biomaterials: Functional Mechanisms and Advances in Computational and Experimental Approaches"
+  authors: "Q. Zhu, Z. Raza, D. Do‐Ha, E. De Costa, P. Sasheva, L. McAlary, H. Mahmodi, W. P. Bowen, L. Ooi, I. Kabakova, H. Yu"
+  journal: "Advanced Materials"
+  volume: "37"
+  year: 2025
+  doi: "10.1002/adma.202510115"
+  tags: ["biomolecular condensates", "coarse-grained"]
+  featured: true
+
+- title: "Bridging Dimensionality Reduction and Stochastic Sampling: The DA2-MC Algorithm for Protein Dynamics"
+  authors: "R. Shen, Q. Zhu, L. Hu, J. Ma, W. Wang, H. Dong"
+  journal: "The Journal of Physical Chemistry Letters"
+  volume: "16"
+  pages: "4788–4795"
+  year: 2025
+  doi: "10.1021/acs.jpclett.5c00921"
+  tags: ["machine learning", "enhanced sampling"]
+
+- title: "Coarse-grained models for ionic liquids and applications to biological and electrochemical systems"
+  authors: "Y. Ge, Q. Zhu, X. Wang, J. Ma"
+  journal: "Industrial Chemistry &amp; Materials"
+  volume: "3"
+  pages: "383–411"
+  year: 2025
+  doi: "10.1039/d5im00021a"
+  tags: ["machine learning", "coarse-grained"]
+
+- title: "Decoding Hairpin Structure Stability in Lin28-Mediated Repression"
+  authors: "Q. Zhu, L. Hu, C. Cui, M. Zang, H. Dong, J. Ma"
+  journal: "Biochemistry"
+  volume: "64"
+  pages: "1276–1284"
+  year: 2025
+  doi: "10.1021/acs.biochem.4c00675"
+  tags: ["mechanisms understanding"]
+
+- title: "End-to-End Modeling of Reaction Field Energy Using Data-Driven Geometric Graph Neural Networks"
+  authors: "Y. Wu, Q. Zhu, R. Luo"
+  journal: "Journal of Chemical Theory and Computation"
+  volume: "21"
+  pages: "9710–9725"
+  year: 2025
+  doi: "10.1021/acs.jctc.5c01193"
+  tags: ["machine learning", "properties prediction"]
+
+- title: "External electric field control of charge transport in Y-shaped and linear non-fullerene acceptors"
+  authors: "L. Fu, J. Hu, R. Li, H. Geng, Q. Zhu, Z. Fan, B. Cheng"
+  journal: "Journal of Materials Chemistry A"
+  volume: "13"
+  pages: "37854–37863"
+  year: 2025
+  doi: "10.1039/d5ta06929g"
+  tags: ["mechanisms understanding"]
+
+- title: "LightChem: A Lightweight Domain-Specific Language Model for Molecular Property and Reaction Prediction in Chemistry"
+  authors: "Y. Zhang, J. Zhang, Y. Gu, Q. Tao, L. He, D. Li, Y. Zhang, D. Fan, Y. Gao, J. Sun, J. Chen, R. Shi, Z. Wu, Q. Jia, L. Zheng, S. Yuan, F. Yang, Y. Chen, D. Zheng, Y. Liu, Y. Cai, Z. Gu, C. Zhang, B. Cai, G. Li, T. Zhang, Y. Zhou, Y. Liu, T. Zhang, S. Xing, Z. Li, X. Su, D. Fan, H. Qian, X. Li, B. Zhang, Y. Xiao, X. Liu, Y. Zhu, Q. Zhu, Q. Liu, S. Chen, J. Wen, Z. Yu, G. Zeng, Y. Liang, Y. Wang, W. Xu, J. Wang, M. Yang, Y. Gao, S. Li, Y. Shi, X. Chen, H. Dong, W. Li, J. Ma, G. Wang"
+  year: 2025
+  doi: "10.26434/chemrxiv-2025-wd80w"
+  tags: ["machine learning", "properties prediction"]
+
+- title: "Proton coordination chemistry in pyrene-based anodes for ultralong-life aqueous proton batteries"
+  authors: "W. Yang, C. Zhan, Q. Zhu, L. Liu, B. Su, H. Yu, L. Zhang, L. Yan, J. Shu"
+  journal: "Inorganic Chemistry Frontiers"
+  volume: "12"
+  pages: "4213–4222"
+  year: 2025
+  doi: "10.1039/d5qi00269a"
+  tags: ["mechanisms understanding"]
+
+- title: "Prediction of free radical reactions toward organic pollutants with easily accessible molecular descriptors"
+  authors: "G. Zhang, Q. Zhu, H. Zheng, S. Zhang, J. Ma"
+  journal: "Chemosphere"
+  volume: "346"
+  pages: "140660"
+  year: 2024
+  doi: "10.1016/j.chemosphere.2023.140660"
+  tags: ["machine learning", "properties prediction"]
+
+- title: "Shifting redox reaction equilibria on demand using an orthogonal redox cofactor"
+  authors: "D. Aspacio, Y. Zhang, Y. Cui, E. Luu, E. King, W. B. Black, S. Perea, Q. Zhu, Y. Wu, R. Luo, J. B. Siegel, H. Li"
+  journal: "Nature Chemical Biology"
+  volume: "20"
+  pages: "1535–1546"
+  year: 2024
+  doi: "10.1038/s41589-024-01702-5"
+  tags: ["mechanisms understanding"]
+
+- title: "Single-molecule sensing inside stereo- and regio-defined hetero-nanopores"
+  authors: "W. Liu, Q. Zhu, C.-N. Yang, Y.-H. Fu, J.-C. Zhang, M.-Y. Li, Z.-L. Yang, K.-L. Xin, J. Ma, M. Winterhalter, Y.-L. Ying, Y.-T. Long"
+  journal: "Nature Nanotechnology"
+  volume: "19"
+  pages: "1693–1701"
+  year: 2024
+  doi: "10.1038/s41565-024-01721-2"
+  tags: ["mechanisms understanding"]
+
+- title: "Targeting SHP2 Cryptic Allosteric Sites for Effective Cancer Therapy"
+  authors: "A. U. Rehman, C. Zhao, Y. Wu, Q. Zhu, R. Luo"
+  journal: "International Journal of Molecular Sciences"
+  volume: "25"
+  pages: "6201"
+  year: 2024
+  doi: "10.3390/ijms25116201"
+  tags: ["mechanisms understanding"]
+
+- title: "Understanding and fine tuning the propensity of ATP-driven liquid–liquid phase separation with oligolysine"
+  authors: "Q. Zhu, Y. Wu, R. Luo"
+  journal: "Physical Chemistry Chemical Physics"
+  volume: "26"
+  pages: "10568–10578"
+  year: 2024
+  doi: "10.1039/d4cp00761a"
+  tags: ["biomolecular condensates", "coarse-grained"]
+  featured: true
+
+- title: "AmberTools"
+  authors: "D. A. Case, H. M. Aktulga, K. Belfon, D. S. Cerutti, G. A. Cisneros, V. W. D. Cruzeiro, N. Forouzesh, T. J. Giese, A. W. Götz, H. Gohlke, S. Izadi, K. Kasavajhala, M. C. Kaymak, E. King, T. Kurtzman, T.-S. Lee, P. Li, J. Liu, T. Luchko, R. Luo, M. Manathunga, M. R. Machado, H. M. Nguyen, K. A. O’Hearn, A. V. Onufriev, F. Pan, S. Pantano, R. Qi, A. Rahnamoun, A. Risheh, S. Schott-Verdugo, A. Shajan, J. Swails, J. Wang, H. Wei, X. Wu, Y. Wu, S. Zhang, S. Zhao, Q. Zhu, T. E. Cheatham, D. R. Roe, A. Roitberg, C. Simmerling, D. M. York, M. C. Nagan, K. M. Merz"
+  journal: "Journal of Chemical Information and Modeling"
+  volume: "63"
+  pages: "6183–6191"
+  year: 2023
+  doi: "10.1021/acs.jcim.3c01153"
+  tags: ["method development"]
+  featured: true
+
+- title: "Grid-Robust Efficient Neural Interface Model for Universal Molecule Surface Construction from Point Clouds"
+  authors: "Y. Wu, H. Wei, Q. Zhu, R. Luo"
+  journal: "The Journal of Physical Chemistry Letters"
+  volume: "14"
+  pages: "9034–9041"
+  year: 2023
+  doi: "10.1021/acs.jpclett.3c02176"
+  tags: ["method development", "machine learning"]
+
+- title: "Machine Learning-Guided Adaptive Parametrization for Coupling Terms in a Mixed United-Atom/Coarse-Grained Model for Diphenylalanine Self-Assembly in Aqueous Ionic Liquids"
+  authors: "Y. Ge, X. Wang, Q. Zhu, Y. Yang, H. Dong, J. Ma"
+  journal: "Journal of Chemical Theory and Computation"
+  volume: "19"
+  pages: "6718–6732"
+  year: 2023
+  doi: "10.1021/acs.jctc.3c00809"
+  tags: ["method development", "machine learning", "coarse-grained"]
+
+- title: "Planar Chirality for Acid/Base Responsive Macrocyclic Pillararenes Induced by Amino Acid Derivatives: Molecular Dynamics Simulations and Machine Learning"
+  authors: "L. Fu, R. Wang, Q. Zhu, Y. Gu, L. Zheng, Y. Chen, J. Jiang, J. Ma"
+  journal: "Journal of Chemical Theory and Computation"
+  volume: "19"
+  pages: "4364–4376"
+  year: 2023
+  doi: "10.1021/acs.jctc.2c01265"
+  tags: ["machine learning"]
+
+- title: "Recent Advances in Biomolecular Recognition"
+  authors: "Q. Zhu, R. Luo"
+  journal: "International Journal of Molecular Sciences"
+  volume: "24"
+  pages: "8310"
+  year: 2023
+  doi: "10.3390/ijms24098310"
+
+- title: "Streamlining and Optimizing Strategies of Electrostatic Parameterization"
+  authors: "Q. Zhu, Y. Wu, S. Zhao, P. Cieplak, Y. Duan, R. Luo"
+  journal: "Journal of Chemical Theory and Computation"
+  volume: "19"
+  pages: "6353–6365"
+  year: 2023
+  doi: "10.1021/acs.jctc.3c00659"
+  tags: ["method development", "polarisable force field"]
+
+- title: "Treating Polarization Effects in Charged and Polar Bio-Molecules Through Variable Electrostatic Parameters"
+  authors: "Q. Zhu, Y. Ge, W. Li, J. Ma"
+  journal: "Journal of Chemical Theory and Computation"
+  volume: "19"
+  pages: "396–411"
+  year: 2023
+  doi: "10.1021/acs.jctc.2c01130"
+  tags: ["polarisable force field"]
+
+- title: "An electrostatic-variable coarse-grained model for predicting enthalpy of vaporization, surface tension, diffusivity, conductivity, and dielectric constant of aqueous ionic liquid"
+  authors: "Y. Ge, Q. Zhu, Y. Li, H. Dong, J. Ma"
+  journal: "Journal of Molecular Liquids"
+  volume: "346"
+  pages: "118230"
+  year: 2022
+  doi: "10.1016/j.molliq.2021.118230"
+  tags: ["method development", "coarse-grained"]
+
+- title: "Batch-Scale Synthesis of Nanoparticle-Agminated Three-Dimensional Porous Cu@Cu2O Microspheres for Highly Selective Electrocatalysis of Nitrate to Ammonia"
+  authors: "M. Jiang, Q. Zhu, X. Song, Y. Gu, P. Zhang, C. Li, J. Cui, J. Ma, Z. Tie, Z. Jin"
+  journal: "Environmental Science &amp; Technology"
+  volume: "56"
+  pages: "10299–10307"
+  year: 2022
+  doi: "10.1021/acs.est.2c01057"
+  tags: ["mechanism understanding"]
+
+- title: "Fast Prediction of Lipophilicity of Organofluorine Molecules: Deep Learning-Derived Polarity Characters and Experimental Tests"
+  authors: "Q. Jia, Y. Ni, Z. Liu, X. Gu, Z. Cui, M. Fan, Q. Zhu, Y. Wang, J. Ma"
+  journal: "Journal of Chemical Information and Modeling"
+  volume: "62"
+  pages: "4928–4936"
+  year: 2022
+  doi: "10.1021/acs.jcim.2c01201"
+  tags: ["method development", "machine learning", "properties prediction"]
+
+- title: "Identification of Single-Molecule Catecholamine Enantiomers Using a Programmable Nanopore"
+  authors: "W. Jia, C. Hu, Y. Wang, Y. Liu, L. Wang, S. Zhang, Q. Zhu, Y. Gu, P. Zhang, J. Ma, H.-Y. Chen, S. Huang"
+  journal: "ACS Nano"
+  volume: "16"
+  pages: "6615–6624"
+  year: 2022
+  doi: "10.1021/acsnano.2c01017"
+  tags: ["mechanism understanding"]
+
+- title: "Machine learning assisted prediction of charge transfer properties in organic solar cells by using morphology-related descriptors"
+  authors: "L. Fu, H. Hu, Q. Zhu, L. Zheng, Y. Gu, Y. Wen, H. Ma, H. Yin, J. Ma"
+  journal: "Nano Research"
+  volume: "16"
+  pages: "3588–3596"
+  year: 2022
+  doi: "10.1007/s12274-022-5000-4"
+  tags: ["machine learning"]
+
+- title: "Molecular partition coefficient from machine learning with polarization and entropy embedded atom-centered symmetry functions"
+  authors: "Q. Zhu, Q. Jia, Z. Liu, Y. Ge, X. Gu, Z. Cui, M. Fan, J. Ma"
+  journal: "Physical Chemistry Chemical Physics"
+  volume: "24"
+  pages: "23082–23088"
+  year: 2022
+  doi: "10.1039/d2cp02648a"
+  tags: ["method development", "machine learning", "properties prediction"]
+  featured: true
+
+- title: "Nitrogen reduction reaction energy and pathways in metal-zeolites: deep learning and explainable machine learning with local acidity and hydrogen bonding features"
+  authors: "Y. Gu, Q. Zhu, Z. Liu, C. Fu, J. Wu, Q. Zhu, Q. Jia, J. Ma"
+  journal: "Journal of Materials Chemistry A"
+  volume: "10"
+  pages: "14976–14988"
+  year: 2022
+  doi: "10.1039/d2ta03563d"
+  tags: ["mechanism understanding"]
+
+- title: "Surface Stability and Morphology of Calcium Phosphate Tuned by pH Values and Lactic Acid Additives: Theoretical and Experimental Study"
+  authors: "H. Chen, C. Lv, L. Guo, M. Ma, X. Li, Z. Lan, J. Huo, H. Dong, X. Zhu, Q. Zhu, Y. Gu, Z. Liu, J. Liu, H. Chen, X. Guo, J. Ma"
+  journal: "ACS Applied Materials &amp; Interfaces"
+  volume: "14"
+  pages: "4836–4851"
+  year: 2022
+  doi: "10.1021/acsami.1c18727"
+  tags: ["mechanism understanding"]
+
+- title: "Towards High‐Performance Aqueous Zinc Batteries via a Semi‐Conductive Bipolar‐Type Polymer Cathode"
+  authors: "L. Yan, Q. Zhu, Y. Qi, J. Xu, Y. Peng, J. Shu, J. Ma, Y. Wang"
+  journal: "Angewandte Chemie International Edition"
+  volume: "61"
+  year: 2022
+  doi: "10.1002/anie.202211107"
+  tags: ["mechanism understanding"]
+
+- title: "Shear viscosity prediction of alcohols, hydrocarbons, halogenated, carbonyl, nitrogen-containing, and sulfur compounds using the variable force fields"
+  authors: "Q. Zhu, Y. Gu, L. Hu, T. Gaudin, M. Fan, J. Ma"
+  journal: "The Journal of Chemical Physics"
+  volume: "154"
+  year: 2021
+  doi: "10.1063/5.0038267"
+  tags: ["machine learning"]
+
+- title: "A Two-Ended Data-Driven Accelerated Sampling Method for Exploring the Transition Pathways between Two Known States of Protein"
+  authors: "Y. Yuan, Q. Zhu, R. Song, J. Ma, H. Dong"
+  journal: "Journal of Chemical Theory and Computation"
+  volume: "16"
+  pages: "4631–4640"
+  year: 2020
+  doi: "10.1021/acs.jctc.9b01184"
+  tags: ["method development", "machine learning"]
+
+- title: "A Data‐Driven Accelerated Sampling Method for Searching Functional States of Proteins"
+  authors: "Q. Zhu, Y. Yuan, J. Ma, H. Dong"
+  journal: "Advanced Theory and Simulations"
+  volume: "2"
+  year: 2019
+  doi: "10.1002/adts.201800171"
+  tags: ["method development", "machine learning"]
+
+- title: "Direct Extracellular Electron Transfer of the Geobacter sulfurreducens Pili Relevant to Interaromatic Distances"
+  authors: "C. Shu, Q. Zhu, K. Xiao, Y. Hou, H. Ma, J. Ma, X. Sun"
+  journal: "BioMed Research International"
+  volume: "2019"
+  pages: "1–12"
+  year: 2019
+  doi: "10.1155/2019/6151587"
+  tags: ["mechanism understanding"]
+
+- title: "On-Demand Electrical Switching of Antibody?Antigen Binding on Surfaces"
+  authors: "B. Santos Gomes, E. Cantini, S. Tommasone, J. S. Gibson, X. Wang, Q. Zhu, J. Ma, J. D. McGettrick, T. M. Watson, J. A. Preece, J. C. Kirkman-Brown, S. J. Publicover, P. M. Mendes"
+  journal: "ACS Applied Bio Materials"
+  volume: "1"
+  pages: "738–747"
+  year: 2018
+  doi: "10.1021/acsabm.8b00201"
+  tags: ["mechanism understanding"]
+
+- title: "Synergistic steric pairing effects of terfluorenes with ternary side groups on β-conformation transition: experiments and computations"
+  authors: "X.-A. Yuan, M.-N. Yu, Q. Zhu, W.-W. Zhang, L.-H. Xie, W. Huang, J. Ma"
+  journal: "Journal of Materials Chemistry C"
+  volume: "6"
+  pages: "1551–1561"
+  year: 2018
+  doi: "10.1039/c7tc04817c"
+  tags: ["mechanism understanding"]
+
+- title: "Electrostatic Interactions of Water in External Electric Field: Molecular Dynamics Simulations"
+  authors: "Q. Zhu, Z. KAN, J. Ma"
+  journal: "Journal of Electrochemistry"
+  volume: "23"
+  pages: "4"
+  year: 2017
+  tags: ["polarisation effects"]
+
+- title: "Entropy and Polarity Control the Partition and Transportation of Drug-like Molecules in Biological Membrane"
+  authors: "Q. Zhu, Y. Lu, X. He, T. Liu, H. Chen, F. Wang, D. Zheng, H. Dong, J. Ma"
+  journal: "Scientific Reports"
+  volume: "7"
+  year: 2017
+  doi: "10.1038/s41598-017-18012-7"
+  tags: ["mechanism understanding", "polarisation effects"]
+
+- title: "Polarization Effects on the Cellulose Dissolution in Ionic Liquids: Molecular Dynamics Simulations with Polarization Model and Integrated Tempering Enhanced Sampling Method"
+  authors: "Z. Kan, Q. Zhu, L. Yang, Z. Huang, B. Jin, J. Ma"
+  journal: "The Journal of Physical Chemistry B"
+  volume: "121"
+  pages: "4319–4332"
+  year: 2017
+  doi: "10.1021/acs.jpcb.6b12647"
+  tags: ["mechanism understanding", "polarisation effects"]
+
+- title: "Tuning the collective switching behavior of azobenzene/Au hybrid materials: flexible versus rigid azobenzene backbones and Au(111) surfaces versus curved Au nanoparticles"
+  authors: "C. Liu, D. Zheng, W. Hu, Q. Zhu, Z. Tian, J. Zhao, Y. Zhu, J. Ma"
+  journal: "Nanoscale"
+  volume: "9"
+  pages: "16700–16710"
+  year: 2017
+  doi: "10.1039/c7nr03421k"
+  tags: ["mechanism understanding"]

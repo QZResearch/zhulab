@@ -1,0 +1,61 @@
+{{ define "main" }}
+  <article>
+    <header class="mt-5 max-w-prose">
+      {{ if .Params.showBreadcrumbs | default (site.Params.article.showBreadcrumbs | default false) }}
+        {{ partial "breadcrumbs.html" . }}
+      {{ end }}
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        {{ .Title | emojify }}
+      </h1>
+      <p class="mt-1 text-base text-neutral-500 dark:text-neutral-400">
+        {{ with .Date }}{{ .Format (site.Params.dateFormat | default "2 January 2006") }} &middot; {{ end }}
+        {{ len (.Resources.ByType "image") }} photos
+      </p>
+      {{ with .Content }}
+        <div class="mt-4 prose dark:prose-invert">{{ . }}</div>
+      {{ end }}
+    </header>
+
+    {{ $captions := .Params.captions | default dict }}
+    {{ $images := .Params.images }}
+    {{ $resources := slice }}
+    {{ if $images }}
+      {{ range $images }}
+        {{ with $.Resources.GetMatch . }}{{ $resources = $resources | append . }}{{ end }}
+      {{ end }}
+    {{ else }}
+      {{ $resources = .Resources.ByType "image" }}
+    {{ end }}
+
+    {{ with $resources }}
+      <div class="yu-gallery">
+        {{ range . }}
+          {{/* Proportional, not cropped: the square tile is a CSS crop, so opening
+             the zoom shows the whole photo rather than the cropped square. */}}
+          {{ $thumb := cond (gt .Width 1100) (.Resize "1100x q78") . }}
+          {{ $full := cond (gt .Width 1800) (.Resize "1800x q85") . }}
+          {{ $caption := index $captions (path.Base .Name) }}
+          <figure class="yu-shot">
+            <img
+              class="nozoom"
+              src="{{ $thumb.RelPermalink }}"
+              data-full="{{ $full.RelPermalink }}"
+              width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
+              alt="{{ $caption | default $.Title }}"
+              loading="lazy" decoding="async" />
+            {{ with $caption }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+          </figure>
+        {{ end }}
+      </div>
+    {{ end }}
+
+    <div class="yu-profile-back">
+      <a href="{{ "gallery/" | relLangURL }}">&larr; All albums</a>
+    </div>
+  </article>
+
+  {{ with resources.Get "js/gallery-lightbox.js" }}
+    {{ $js := . | resources.Minify | resources.Fingerprint (site.Params.fingerprintAlgorithm | default "sha512") }}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+  {{ end }}
+{{ end }}

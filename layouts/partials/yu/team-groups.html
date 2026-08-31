@@ -1,0 +1,42 @@
+{{/*
+  Returns an ordered slice of {name, people} dicts for the /team/ section.
+  Group order comes from `teamGroups` in params.toml; anything with a group
+  not listed there is appended at the end under its own heading.
+  Pass a dict with "includeAlumni" (bool) to control whether alumni appear.
+*/}}
+{{ $includeAlumni := .includeAlumni | default false }}
+{{ $people := where site.RegularPages "Section" "team" }}
+{{ if not $includeAlumni }}
+  {{ $people = where $people "Params.alumni" "!=" true }}
+{{ end }}
+
+{{/* Groups named in `hiddenTeamGroups` (params.toml) are left off the page
+     entirely, even if they have members. Their profile pages still exist and
+     stay reachable by URL — set `draft: true` on a person to remove that too. */}}
+{{ $hidden := site.Params.hiddenTeamGroups | default slice }}
+{{ $order := site.Params.teamGroups | default slice }}
+{{ $seen := slice }}
+{{ $out := slice }}
+
+{{ range $order }}
+  {{ $g := . }}
+  {{ $members := sort (where $people "Params.group" $g) "Weight" }}
+  {{ if in $hidden $g }}{{ $members = slice }}{{ end }}
+  {{ if $members }}
+    {{ $out = $out | append (dict "name" $g "people" $members) }}
+    {{ $seen = $seen | append $g }}
+  {{ end }}
+{{ end }}
+
+{{/* any group not named in teamGroups */}}
+{{ $extras := slice }}
+{{ range $people }}
+  {{ $g := .Params.group | default "Members" }}
+  {{ if and (not (in $seen $g)) (not (in $hidden $g)) }}{{ $extras = $extras | append $g }}{{ end }}
+{{ end }}
+{{ range uniq $extras }}
+  {{ $g := . }}
+  {{ $out = $out | append (dict "name" $g "people" (sort (where $people "Params.group" $g) "Weight")) }}
+{{ end }}
+
+{{ return $out }}

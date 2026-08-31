@@ -1,0 +1,57 @@
+# -- Site Configuration --
+# https://blowfish.page/docs/getting-started/
+
+theme = "blowfish"
+# NOTE: no /<repo>/ subpath here on purpose. `hugo server` serves the site
+# under whatever path baseURL has, so putting the repo name in would make
+# http://localhost:1313/ return 404. The deploy workflow passes the real
+# Pages URL (subpath included) to Hugo with --baseURL, so production is right
+# either way.
+baseURL = "https://YOUR-ORG.github.io/"
+defaultContentLanguage = "en"
+
+enableRobotsTXT = true
+enableEmoji = true
+summaryLength = 0
+
+buildDrafts = false
+buildFuture = false
+
+# Sections that count as "content" for lists/recent items
+mainSections = ["news"]
+
+# googleAnalytics = "G-XXXXXXXXX"
+
+[pagination]
+  pagerSize = 20
+
+[imaging]
+  anchor = 'Center'
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[sitemap]
+  changefreq = 'weekly'
+  filename = 'sitemap.xml'
+  priority = 0.5
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[related]
+  threshold = 0
+  toLower = false
+
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+
+  [[related.indices]]
+    name = "categories"
+    weight = 100
+
+  [[related.indices]]
+    name = "date"
+    weight = 10

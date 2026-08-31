@@ -1,0 +1,41 @@
+# -- Main menu --
+[[main]]
+  name = "Research"
+  pageRef = "research"
+  weight = 10
+
+[[main]]
+  name = "Publications"
+  pageRef = "publications"
+  weight = 20
+
+[[main]]
+  name = "Team"
+  pageRef = "team"
+  weight = 30
+
+[[main]]
+  name = "Gallery"
+  pageRef = "gallery"
+  weight = 35
+
+[[main]]
+  name = "News"
+  pageRef = "news"
+  weight = 40
+
+[[main]]
+  name = "Join us"
+  pageRef = "join"
+  weight = 50
+
+# -- Footer menu --
+#[[footer]]
+#  name = "Contact"
+#  pageRef = "join"
+#  weight = 10
+#
+#[[footer]]
+#  name = "News feed"
+#  url = "/news/index.xml"
+#  weight = 20

@@ -1,0 +1,27 @@
+{{ define "main" }}
+  <header class="mt-5 max-w-prose">
+    {{ if .Params.showBreadcrumbs | default (site.Params.list.showBreadcrumbs | default false) }}
+      {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+      {{ .Title | emojify }}
+    </h1>
+    {{ with .Content }}
+      <div class="mt-4 prose dark:prose-invert">{{ . }}</div>
+    {{ end }}
+  </header>
+
+  {{ $groups := partial "yu/team-groups.html" (dict "includeAlumni" true) }}
+  <section class="mt-10">
+    {{ range $groups }}
+      <div class="yu-section-head" style="margin-top:2.5rem">
+        <h2>{{ .name }}</h2>
+      </div>
+      <div class="yu-people">
+        {{ range .people }}
+          {{ partial "yu/person.html" . }}
+        {{ end }}
+      </div>
+    {{ end }}
+  </section>
+{{ end }}

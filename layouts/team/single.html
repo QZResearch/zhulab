@@ -1,0 +1,85 @@
+{{ define "main" }}
+  {{ $img := "" }}
+  {{ with .Params.avatar }}{{ $img = $.Resources.GetMatch . }}{{ end }}
+  {{ $anchor := .Params.avatarAnchor | default "Top" }}
+
+  <article class="yu-profile">
+    {{ if .Params.showBreadcrumbs | default (site.Params.article.showBreadcrumbs | default false) }}
+      <div class="mt-5">{{ partial "breadcrumbs.html" . }}</div>
+    {{ end }}
+
+    <header class="yu-profile-head">
+      <div class="yu-profile-photo">
+        {{ if $img }}
+          <img class="nozoom" src="{{ ($img.Fill (printf "520x520 %s q85" $anchor)).RelPermalink }}" alt="{{ .Title }}" />
+        {{ else }}
+          <div class="yu-avatar-fallback yu-avatar-lg">{{ partial "yu/initial.html" .Title }}</div>
+        {{ end }}
+      </div>
+
+      <div class="yu-profile-id">
+        <h1>{{ .Title | emojify }}</h1>
+        {{ with .Params.role }}<p class="yu-profile-role">{{ . }}</p>{{ end }}
+        {{ with .Params.group }}<p class="yu-profile-group">{{ . }}</p>{{ end }}
+
+        <ul class="yu-profile-meta">
+          {{ with .Params.email }}
+            <li>{{ partial "icon.html" "envelope" }}<a href="mailto:{{ . }}">{{ . }}</a></li>
+          {{ end }}
+          {{ with .Params.office }}
+            <li>{{ partial "icon.html" "location-dot" }}<span>{{ . }}</span></li>
+          {{ end }}
+        </ul>
+
+        {{ with .Params.links }}
+          <div class="yu-profile-links">
+            {{ range . }}
+              <a href="{{ .url }}" target="_blank" rel="noopener" title="{{ .name }}">
+                {{ with .icon }}{{ partial "icon.html" . }}{{ end }}
+                <span>{{ .name }}</span>
+              </a>
+            {{ end }}
+          </div>
+        {{ end }}
+      </div>
+    </header>
+
+    <div class="yu-profile-body">
+      <div class="yu-profile-main prose dark:prose-invert">
+        {{ .Content }}
+      </div>
+
+      <aside class="yu-profile-aside">
+        {{ partial "yu/fact-block.html" (dict "title" "Supervised by" "items" .Params.supervisors) }}
+        {{ partial "yu/fact-block.html" (dict "title" "Interests"  "items" .Params.interests) }}
+        {{ partial "yu/fact-block.html" (dict "title" "Experience" "items" .Params.experience) }}
+        {{ partial "yu/fact-block.html" (dict "title" "Education"  "items" .Params.education) }}
+        {{ partial "yu/fact-block.html" (dict "title" "Awards"     "items" .Params.awards) }}
+      </aside>
+    </div>
+
+    {{/* Papers from data/publications.yaml whose author list contains pubName */}}
+    {{ with .Params.pubName }}
+      {{ $name := . }}
+      {{ $mine := slice }}
+      {{ range hugo.Data.publications | default slice }}
+        {{ if in (.authors | default "") $name }}{{ $mine = $mine | append . }}{{ end }}
+      {{ end }}
+      {{ with $mine }}
+        <section class="yu-section">
+          <div class="yu-section-head">
+            <h2>Publications</h2>
+            <a class="yu-more" href="{{ "publications/" | relLangURL }}">Group list &rarr;</a>
+          </div>
+          {{ range sort . "year" "desc" }}
+            {{ partial "yu/publication.html" . }}
+          {{ end }}
+        </section>
+      {{ end }}
+    {{ end }}
+
+    <div class="yu-profile-back">
+      <a href="{{ "team/" | relLangURL }}">&larr; Back to the team</a>
+    </div>
+  </article>
+{{ end }}

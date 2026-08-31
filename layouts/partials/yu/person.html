@@ -1,0 +1,19 @@
+{{/* Renders one team member as an avatar tile. Context = the member's Page. */}}
+{{ $img := "" }}
+{{ with .Params.avatar }}{{ $img = $.Resources.GetMatch . }}{{ end }}
+{{/* Square crop anchored at the top: on a portrait-orientation photo that
+     keeps the head. Override per person with avatarAnchor: "Center" | "Smart"
+     | "Bottom" | "Left" | "Right" if the crop lands badly. */}}
+{{ $anchor := .Params.avatarAnchor | default "Top" }}
+<a class="yu-person" href="{{ .RelPermalink }}">
+  {{ if $img }}
+    {{/* nozoom: the tile is a link, so it must not also be a medium-zoom target —
+         clicking would fire the zoom and the navigation at the same time, and the
+         zoomed image is left stranded when you come back. */}}
+    <img class="nozoom" src="{{ ($img.Fill (printf "260x260 %s q80" $anchor)).RelPermalink }}" alt="{{ .Title }}" loading="lazy" />
+  {{ else }}
+    <div class="yu-avatar-fallback">{{ partial "yu/initial.html" .Title }}</div>
+  {{ end }}
+  <span class="yu-person-name">{{ .Title }}</span>
+  {{ with .Params.role }}<span class="yu-person-role">{{ . }}</span>{{ end }}
+</a>

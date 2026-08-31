@@ -1,0 +1,813 @@
+/* ==========================================================================
+   Yu Group — custom styles for the Blowfish homepage
+   Colours come from the active Blowfish colour scheme, so changing
+   `colorScheme` in params.toml restyles everything below automatically.
+   ========================================================================== */
+
+:root {
+  --yu-ink: rgb(var(--color-neutral-900));
+  --yu-muted: rgb(var(--color-neutral-500));
+  --yu-line: rgb(var(--color-neutral-200));
+  --yu-surface: rgb(var(--color-neutral-50));
+  --yu-card: rgb(var(--color-neutral));
+  --yu-accent: rgb(var(--color-primary-600));
+  --yu-accent-soft: rgb(var(--color-primary-50));
+}
+
+html.dark {
+  --yu-ink: rgb(var(--color-neutral-100));
+  --yu-muted: rgb(var(--color-neutral-400));
+  --yu-line: rgb(var(--color-neutral-700));
+  --yu-surface: rgb(var(--color-neutral-800));
+  --yu-card: rgb(var(--color-neutral-800));
+  --yu-accent: rgb(var(--color-primary-400));
+  --yu-accent-soft: rgba(var(--color-primary-400), 0.12);
+}
+
+/* ---------- generic section scaffolding ---------- */
+
+.yu-section { margin: 4.5rem 0; }
+.yu-section:first-of-type { margin-top: 0; }
+
+.yu-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--yu-line);
+}
+
+.yu-section-head h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--yu-ink);
+}
+
+.yu-more {
+  flex: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--yu-accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.yu-more:hover { text-decoration: underline; }
+
+/* ---------- hero ---------- */
+
+.yu-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 1.25rem;
+  padding: 4rem 2rem 4.25rem;
+  margin-bottom: 1rem;
+  background: var(--yu-surface);
+  border: 1px solid var(--yu-line);
+}
+
+.yu-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.yu-hero-veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    100deg,
+    rgba(var(--color-neutral-900), 0.82) 0%,
+    rgba(var(--color-neutral-900), 0.62) 55%,
+    rgba(var(--color-neutral-900), 0.35) 100%
+  );
+}
+
+.yu-hero.has-image,
+.yu-hero.has-image .yu-hero-eyebrow,
+.yu-hero.has-image h1,
+.yu-hero.has-image .yu-hero-lead { color: #fff; }
+
+.yu-hero.has-image .yu-hero-eyebrow { color: rgb(var(--color-primary-200)); }
+
+.yu-hero-inner { max-width: 46rem; }
+
+.yu-hero-eyebrow {
+  margin: 0 0 0.9rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--yu-accent);
+}
+
+.yu-hero h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.035em;
+  color: var(--yu-ink);
+}
+
+.yu-hero-lead {
+  margin: 1.15rem 0 0;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--yu-muted);
+}
+
+.yu-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+/* ---------- research area cards ---------- */
+
+.yu-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.yu-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 1px solid var(--yu-line);
+  border-radius: 1rem;
+  background: var(--yu-card);
+  text-decoration: none;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.yu-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--yu-accent);
+  box-shadow: 0 12px 28px -18px rgba(var(--color-neutral-900), 0.45);
+}
+
+.yu-card-icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.75rem;
+  background: var(--yu-accent-soft);
+  color: var(--yu-accent);
+}
+.yu-card-icon .icon { width: 1.25rem; height: 1.25rem; }
+.yu-card-icon svg { width: 100%; height: 100%; fill: currentColor; }
+
+.yu-card h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--yu-ink);
+}
+
+.yu-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--yu-muted);
+}
+
+/* ---------- news list ---------- */
+
+.yu-news { display: flex; flex-direction: column; }
+
+.yu-news-item {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1.25rem;
+  align-items: baseline;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--yu-line);
+  text-decoration: none;
+}
+.yu-news-item:last-child { border-bottom: 0; }
+.yu-news-item:hover .yu-news-title { color: var(--yu-accent); }
+
+.yu-news-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--yu-muted);
+  white-space: nowrap;
+}
+
+.yu-news-title {
+  font-size: 0.98rem;
+  line-height: 1.55;
+  font-weight: 600;
+  color: var(--yu-ink);
+  transition: color 0.15s ease;
+}
+
+@media (max-width: 640px) {
+  .yu-news-item { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+
+/* ---------- publications ---------- */
+
+.yu-pub {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--yu-line);
+}
+.yu-pub:last-child { border-bottom: 0; }
+
+.yu-pub-title {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  line-height: 1.45;
+  font-weight: 700;
+  color: var(--yu-ink);
+}
+.yu-pub-title a { color: inherit; text-decoration: none; }
+.yu-pub-title a:hover { color: var(--yu-accent); }
+
+.yu-pub-authors {
+  margin: 0 0 0.3rem;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--yu-muted);
+}
+.yu-pub-authors .yu-us { color: var(--yu-ink); font-weight: 600; }
+
+.yu-pub-venue {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--yu-muted);
+}
+.yu-pub-venue em { color: var(--yu-ink); font-style: italic; }
+
+.yu-tags { display: inline-flex; flex-wrap: wrap; gap: 0.4rem; margin-left: 0.5rem; }
+
+.yu-tag {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: var(--yu-accent-soft);
+  color: var(--yu-accent);
+  text-decoration: none;
+}
+
+/* ---------- team ---------- */
+
+.yu-people {
+  display: grid;
+  gap: 1.5rem 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+}
+
+.yu-person { text-align: center; text-decoration: none; }
+
+.yu-person img,
+.yu-person .yu-avatar-fallback {
+  width: 6.5rem;
+  height: 6.5rem;
+  margin: 0 auto 0.7rem;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid var(--yu-line);
+  transition: border-color 0.18s ease;
+}
+
+.yu-person .yu-avatar-fallback {
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: var(--yu-accent-soft);
+  color: var(--yu-accent);
+}
+
+.yu-person:hover img,
+.yu-person:hover .yu-avatar-fallback { border-color: var(--yu-accent); }
+
+.yu-person-name {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--yu-ink);
+}
+
+.yu-person-role {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.775rem;
+  color: var(--yu-muted);
+}
+
+/* ---------- join / CTA banner ---------- */
+
+.yu-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem 2.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid var(--yu-line);
+  background: var(--yu-surface);
+}
+
+.yu-cta h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--yu-ink);
+}
+
+.yu-cta p {
+  margin: 0;
+  max-width: 38rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--yu-muted);
+}
+
+/* ---------- intro prose block under the hero ---------- */
+
+.yu-intro {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--yu-muted);
+}
+.yu-intro strong { color: var(--yu-ink); }
+
+/* ---------- buttons ---------- */
+
+.yu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.35rem;
+  border-radius: 0.7rem;
+  font-size: 0.925rem;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+.yu-btn:hover { transform: translateY(-1px); }
+
+.yu-btn-primary {
+  background: rgb(var(--color-primary-600));
+  color: #fff;
+}
+.yu-btn-primary:hover { background: rgb(var(--color-primary-500)); }
+
+.yu-btn-outline {
+  background: rgba(255, 255, 255, 0.92);
+  color: rgb(var(--color-neutral-800));
+  border-color: rgb(var(--color-neutral-300));
+}
+.yu-btn-outline:hover { border-color: rgb(var(--color-primary-500)); color: rgb(var(--color-primary-600)); }
+
+html.dark .yu-btn-outline {
+  background: transparent;
+  color: rgb(var(--color-neutral-100));
+  border-color: rgb(var(--color-neutral-600));
+}
+
+.yu-cta .yu-btn-outline { background: transparent; }
+
+/* ---------- member profile page ---------- */
+
+.yu-profile { margin-top: 1.5rem; }
+
+.yu-profile-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  border: 1px solid var(--yu-line);
+  border-radius: 1.25rem;
+  background: var(--yu-surface);
+}
+
+.yu-profile-photo { flex: none; }
+
+.yu-profile-photo img,
+.yu-avatar-lg {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 3px solid var(--yu-card);
+  box-shadow: 0 10px 30px -18px rgba(var(--color-neutral-900), 0.6);
+}
+
+.yu-avatar-lg {
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+  font-weight: 800;
+  background: var(--yu-accent-soft);
+  color: var(--yu-accent);
+}
+
+.yu-profile-id { flex: 1 1 18rem; min-width: 0; }
+
+.yu-profile-id h1 {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.5vw, 2.4rem);
+  line-height: 1.15;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: var(--yu-ink);
+}
+
+.yu-profile-role {
+  margin: 0.4rem 0 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--yu-accent);
+}
+
+.yu-profile-group {
+  margin: 0.1rem 0 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--yu-muted);
+}
+
+.yu-profile-meta {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.25rem;
+}
+
+.yu-profile-meta li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  color: var(--yu-muted);
+}
+.yu-profile-meta a { color: inherit; text-decoration: none; }
+.yu-profile-meta a:hover { color: var(--yu-accent); }
+.yu-profile-meta .icon { width: 0.95rem; height: 0.95rem; }
+.yu-profile-meta .icon svg { width: 100%; height: 100%; fill: currentColor; }
+
+.yu-profile-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.15rem;
+}
+
+.yu-profile-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--yu-line);
+  background: var(--yu-card);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--yu-ink);
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.yu-profile-links a:hover { border-color: var(--yu-accent); color: var(--yu-accent); }
+.yu-profile-links .icon { width: 0.95rem; height: 0.95rem; }
+.yu-profile-links .icon svg { width: 100%; height: 100%; fill: currentColor; }
+
+.yu-profile-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 16rem;
+  gap: 3rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .yu-profile-body { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.yu-profile-main { max-width: none; }
+
+.yu-profile-aside { align-self: start; position: sticky; top: 5rem; }
+
+.yu-aside-block + .yu-aside-block { margin-top: 1.75rem; }
+
+.yu-aside-block h2 {
+  margin: 0 0 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--yu-muted);
+}
+
+.yu-aside-block ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--yu-line);
+}
+
+.yu-aside-block li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--yu-line);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--yu-ink);
+}
+
+.yu-profile-back {
+  margin: 3rem 0 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.yu-profile-back a { color: var(--yu-accent); text-decoration: none; }
+.yu-profile-back a:hover { text-decoration: underline; }
+
+/* ---------- gallery: album index ---------- */
+
+.yu-albums {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 1fr));
+  margin-top: 2.5rem;
+}
+
+.yu-album {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--yu-line);
+  border-radius: 1rem;
+  background: var(--yu-card);
+  text-decoration: none;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.yu-album:hover {
+  transform: translateY(-3px);
+  border-color: var(--yu-accent);
+  box-shadow: 0 14px 32px -20px rgba(var(--color-neutral-900), 0.5);
+}
+
+.yu-album-thumb {
+  aspect-ratio: 20 / 13;
+  background: var(--yu-surface);
+  overflow: hidden;
+}
+
+.yu-album-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+.yu-album:hover .yu-album-thumb img { transform: scale(1.04); }
+
+.yu-album-body { padding: 1.1rem 1.25rem 1.25rem; }
+
+.yu-album-body h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--yu-ink);
+}
+
+.yu-album-body p {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--yu-muted);
+}
+
+.yu-album-meta {
+  margin-top: 0.6rem !important;
+  font-size: 0.775rem !important;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--yu-muted);
+}
+
+/* ---------- gallery: photo grid ---------- */
+
+.yu-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 1024px) { .yu-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px)  { .yu-gallery { grid-template-columns: 1fr; } }
+
+.yu-shot {
+  margin: 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--yu-surface);
+  border: 1px solid var(--yu-line);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.yu-shot:hover {
+  border-color: var(--yu-accent);
+  box-shadow: 0 14px 32px -20px rgba(var(--color-neutral-900), 0.5);
+}
+
+/* Square crops keep the grid tidy whether the photo is portrait or
+   landscape; clicking opens the uncropped original. */
+.yu-shot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center;
+  cursor: zoom-in;
+  transition: transform 0.35s ease;
+}
+.yu-shot:hover img { transform: scale(1.03); }
+
+.yu-shot figcaption {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--yu-muted);
+  border-top: 1px solid var(--yu-line);
+}
+
+/* ---------- gallery lightbox ---------- */
+
+body.yu-lb-open { overflow: hidden; }
+
+.yu-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1.25rem 1.25rem;
+  background: rgba(8, 12, 20, 0.92);
+  backdrop-filter: blur(3px);
+}
+
+.yu-lightbox.is-open { display: flex; }
+
+.yu-lb-stage {
+  margin: 0;
+  max-width: min(1400px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.yu-lb-stage img {
+  max-width: 100%;
+  max-height: calc(100vh - 9rem);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.8);
+}
+
+.yu-lb-stage figcaption {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.yu-lb-count {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.yu-lb-close,
+.yu-lb-nav {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: background-color 0.15s ease;
+}
+.yu-lb-close:hover,
+.yu-lb-nav:hover { background: rgba(255, 255, 255, 0.22); }
+
+.yu-lb-close {
+  top: 1rem;
+  right: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.yu-lb-nav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3rem;
+  height: 3rem;
+  font-size: 2rem;
+  line-height: 1;
+}
+.yu-lb-prev { left: 1rem; }
+.yu-lb-next { right: 1rem; }
+
+@media (max-width: 620px) {
+  .yu-lb-nav { width: 2.4rem; height: 2.4rem; font-size: 1.5rem; }
+  .yu-lb-prev { left: 0.4rem; }
+  .yu-lb-next { right: 0.4rem; }
+}
+
+.yu-shot img:focus-visible {
+  outline: 3px solid var(--yu-accent);
+  outline-offset: -3px;
+}
+
+/* ---------- structured sidebar entries (experience, education, awards) ---- */
+
+.yu-fact { display: block; }
+
+.yu-fact-role {
+  display: block;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--yu-ink);
+}
+
+.yu-fact-org {
+  display: block;
+  margin-top: 0.05rem;
+  font-size: 0.83rem;
+  line-height: 1.4;
+  color: var(--yu-muted);
+}
+
+.yu-fact-years {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em;
+  color: var(--yu-muted);
+  opacity: 0.85;
+}
+
+.yu-fact-note {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--yu-muted);
+}
+
+.yu-fact-role a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.yu-fact-role a:hover {
+  color: var(--yu-accent);
+  border-bottom-color: var(--yu-accent);
+}

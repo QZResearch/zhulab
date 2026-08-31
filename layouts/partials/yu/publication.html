@@ -1,0 +1,30 @@
+{{/* Renders one entry from data/publications.yaml. Context = the entry map. */}}
+{{ $authors := .authors | default "" }}
+{{ range site.Params.groupAuthors | default slice }}
+  {{ $authors = replace $authors . (printf "<span class=\"yu-us\">%s</span>" .) }}
+{{ end }}
+<article class="yu-pub">
+  <h3 class="yu-pub-title">
+    {{ with .url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ end }}
+      {{ $.title }}
+    {{ with .url }}</a>{{ end }}
+  </h3>
+  {{ with $authors }}<p class="yu-pub-authors">{{ . | safeHTML }}</p>{{ end }}
+  <p class="yu-pub-venue">
+    {{ with .journal }}<em>{{ . }}</em>{{ end }}
+    {{/* the comma belongs to the volume-pages pair, not to the volume alone —
+         without this an entry with a volume but no pages renders "138, (2026)" */}}
+    {{ with .volume }}<strong>{{ . }}</strong>{{ with $.pages }},{{ end }}{{ end }}
+    {{ with .pages }}{{ . }}{{ end }}
+    {{ with .year }}({{ . }}){{ end }}
+    {{ with .doi }}
+      &middot; <a href="https://doi.org/{{ . }}" target="_blank" rel="noopener">DOI</a>
+    {{ end }}
+    {{ with .pdf }}&middot; <a href="{{ . }}" target="_blank" rel="noopener">PDF</a>{{ end }}
+    {{ with .code }}&middot; <a href="{{ . }}" target="_blank" rel="noopener">Code</a>{{ end }}
+    {{ with .tags }}
+      {{ if or $.doi $.pdf $.code }}&middot;{{ end }}
+      <span class="yu-tags">{{ range . }}<span class="yu-tag">{{ . }}</span>{{ end }}</span>
+    {{ end }}
+  </p>
+</article>

@@ -1,0 +1,3 @@
+{{/* First letter of a name, ignoring an academic title. Context = the name string. */}}
+{{ $n := replaceRE `^(Dr|Prof|A/Prof|Assoc\.? Prof|Mr|Ms|Mx|Mrs|Miss)\.?\s+` "" . }}
+{{ return (substr $n 0 1 | upper) }}

@@ -1,0 +1,94 @@
+# -- Theme Options --
+# https://blowfish.page/docs/configuration/#theme-parameters
+
+colorScheme = "blowfish"      # try: blowfish, avocado, ocean, forest, princess, neon, bluegreen, terminal, marvel, noir, autumn, congo, cherry, sapphire, fire, slate
+defaultAppearance = "light"
+autoSwitchAppearance = true
+
+enableSearch = true
+enableCodeCopy = true
+enableA11y = false
+enableStructuredBreadcrumbs = true
+
+disableImageOptimization = false
+disableTextInHeader = false
+
+# defaultSocialImage = "img/og-image.png"
+
+# Bump after re-running scripts/make_favicons.py so browsers drop the cached icon
+faviconVersion = "1"
+
+fingerprintAlgorithm = "sha512"
+# Names highlighted in publication author lists
+groupAuthors = ["Q. Zhu"]
+
+# Order of the headings on /team/ (anything else is appended at the end)
+teamGroups = [
+  "Principal investigator",
+  "Postdoctoral researchers",
+  "PhD students",
+  "Masters & honours",
+  "Alumni",
+]
+
+# Groups to leave off /team/ and the homepage entirely, e.g.
+#   hiddenTeamGroups = ["Masters & honours", "Alumni"]
+hiddenTeamGroups = []
+
+
+[header]
+  layout = "fixed-fill-blur"    # basic, fixed, fixed-fill, fixed-gradient, fixed-fill-blur, floating
+
+[footer]
+  showMenu = true
+  showCopyright = true
+  showThemeAttribution = true
+  showAppearanceSwitcher = true
+  showScrollToTop = true
+
+[homepage]
+  layout = "custom"             # -> layouts/partials/home/custom.html
+  homepageImage = "img/hero.jpg"
+  showRecent = false            # the custom layout renders its own News block
+  showRecentItems = 4
+  showMoreLink = true
+  showMoreLinkDest = "/news/"
+  cardView = true
+
+[article]
+  showDate = true
+  showDateUpdated = false
+  showAuthor = false
+  showHero = false
+  showBreadcrumbs = true
+  showDraftLabel = true
+  showEdit = false
+  showHeadingAnchors = true
+  showPagination = true
+  showReadingTime = false
+  showTableOfContents = false
+  showTaxonomies = true
+  showCategories = true
+  showTags = true
+  showWordCount = false
+  showZenMode = false
+  sharingLinks = ["linkedin", "bluesky", "email"]
+
+[list]
+  showHero = false
+  showBreadcrumbs = true
+  showSummary = true
+  showTableOfContents = false
+  groupByYear = true
+  cardView = true
+
+[sitemap]
+  excludedKinds = ["taxonomy", "term"]
+
+[taxonomy]
+  showTermCount = true
+  showBreadcrumbs = true
+
+[term]
+  showBreadcrumbs = true
+  groupByYear = false

@@ -1,0 +1,12 @@
+{{/* Overrides Blowfish's default icon links (head.html looks for this file).
+     Adds the .ico and the SVG the theme doesn't emit, and appends
+     ?v={{ faviconVersion }} so a changed icon actually reaches people whose
+     browser has cached the old one — bump that param in params.toml after
+     re-running scripts/make_favicons.py. */}}
+{{- $v := printf "?v=%s" (.Params.faviconVersion | default "1") -}}
+<link rel="icon" href="{{ (print "favicon.ico" $v) | relURL }}" sizes="any">
+<link rel="icon" type="image/svg+xml" href="{{ (print "favicon.svg" $v) | relURL }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ (print "favicon-32x32.png" $v) | relURL }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ (print "favicon-16x16.png" $v) | relURL }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ (print "apple-touch-icon.png" $v) | relURL }}">
+<link rel="manifest" href="{{ "site.webmanifest" | relURL }}">

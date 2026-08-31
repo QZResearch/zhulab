@@ -1,0 +1,48 @@
+{{/* One sidebar block on a profile page.
+     Call with:  (dict "title" "Experience" "items" .Params.experience)
+
+     Each item may be a plain string:
+
+         - "PhD in Computational Chemistry, Nanjing University, 2020"
+
+     or a map, which gets proper typography (first line bold, place muted,
+     dates small underneath):
+
+         - role:  "Research Fellow"   # aliases: degree, name, title
+           org:   "University of Wollongong"
+           years: "2024 – present"
+           url:   "/team/qiang-zhu/"  # optional; makes the first line a link
+           note:  "optional extra line"
+*/}}
+{{ with .items }}
+  <div class="yu-aside-block">
+    <h2>{{ $.title }}</h2>
+    <ul>
+      {{ range . }}
+        {{ if reflect.IsMap . }}
+          {{ $label := or .role .degree .name .title }}
+          {{ $url := .url }}
+          {{/* leading slash must go before relURL — see button.html */}}
+          {{ if hasPrefix ($url | default "") "/" }}{{ $url = strings.TrimPrefix "/" $url | relURL }}{{ end }}
+          {{ $external := and $url (or (hasPrefix $url "http://") (hasPrefix $url "https://")) }}
+          <li class="yu-fact">
+            {{ with $label }}
+              <span class="yu-fact-role">
+                {{ if $url }}
+                  <a href="{{ $url }}"{{ if $external }} target="_blank" rel="noopener"{{ end }}>{{ . }}</a>
+                {{ else }}
+                  {{ . }}
+                {{ end }}
+              </span>
+            {{ end }}
+            {{ with (or .org .institution .where) }}<span class="yu-fact-org">{{ . }}</span>{{ end }}
+            {{ with (or .years .date .when) }}<span class="yu-fact-years">{{ . }}</span>{{ end }}
+            {{ with .note }}<span class="yu-fact-note">{{ . | markdownify }}</span>{{ end }}
+          </li>
+        {{ else }}
+          <li>{{ . }}</li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

@@ -1,0 +1,159 @@
+{{/*
+  Zhu Group — custom homepage
+  Enabled by  [homepage] layout = "custom"  in config/_default/params.toml
+
+  Section order:
+    1. Hero            — params on content/_index.md
+    2. Intro prose     — the markdown body of content/_index.md
+    3. Research areas  — pages in content/research/
+    4. Latest news     — pages in content/news/
+    5. Selected pubs   — entries in data/publications.yaml with featured: true
+    6. The team        — pages in content/team/
+    7. Join us banner  — params on content/_index.md
+*/}}
+
+{{ $page := . }}
+
+{{/* ----------------------------------------------------------- 1. HERO */}}
+{{ $heroImg := "" }}
+{{ with .Params.heroImage | default site.Params.homepage.homepageImage }}
+  {{ if or (strings.HasPrefix . "http:") (strings.HasPrefix . "https:") }}
+    {{ $heroImg = resources.GetRemote . }}
+  {{ else }}
+    {{ $heroImg = resources.Get . }}
+  {{ end }}
+{{ end }}
+
+<section class="yu-hero{{ with $heroImg }} has-image{{ end }}">
+  {{ with $heroImg }}
+    {{ $img := . }}
+    {{ if ne $img.MediaType.SubType "svg" }}
+      {{ $img = $img.Resize "1600x q80" }}
+    {{ end }}
+    <img class="yu-hero-bg nozoom" src="{{ $img.RelPermalink }}" alt="" loading="eager" decoding="async" fetchpriority="high" />
+    <div class="yu-hero-veil"></div>
+  {{ end }}
+
+  <div class="yu-hero-inner">
+    {{ with .Params.heroEyebrow }}
+      <p class="yu-hero-eyebrow">{{ . | markdownify }}</p>
+    {{ end }}
+
+    <h1>{{ .Title | default site.Title | emojify }}</h1>
+
+    {{ with .Params.heroLead }}
+      <p class="yu-hero-lead">{{ . | markdownify }}</p>
+    {{ end }}
+
+    {{ with .Params.heroButtons }}
+      <div class="yu-hero-actions">
+        {{ range . }}
+          {{ partial "yu/button.html" (dict "url" .url "label" .label "style" .style) }}
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</section>
+
+{{/* --------------------------------------------------- 2. INTRO (body) */}}
+{{ with .Content }}
+  <section class="yu-section">
+    <div class="prose dark:prose-invert max-w-none yu-intro">{{ . }}</div>
+  </section>
+{{ end }}
+
+{{/* ------------------------------------------- 3. RESEARCH AREA CARDS */}}
+{{ $research := where site.RegularPages "Section" "research" }}
+{{ with $research }}
+  <section class="yu-section">
+    <div class="yu-section-head">
+      <h2>{{ $page.Params.researchHeading | default "Research" }}</h2>
+      <a class="yu-more" href="{{ "research/" | relLangURL }}">All research areas &rarr;</a>
+    </div>
+    <div class="yu-grid">
+      {{ range first 4 (sort . "Weight") }}
+        <a class="yu-card" href="{{ .RelPermalink }}">
+          {{ with .Params.icon }}
+            <span class="yu-card-icon">{{ partial "icon.html" . }}</span>
+          {{ end }}
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Params.summary | default .Summary | plainify | truncate 160 }}</p>
+        </a>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
+
+{{/* ------------------------------------------------------ 4. NEWS FEED */}}
+{{ $news := first 4 (where site.RegularPages "Section" "news") }}
+{{ with $news }}
+  <section class="yu-section">
+    <div class="yu-section-head">
+      <h2>News</h2>
+      <a class="yu-more" href="{{ "news/" | relLangURL }}">All news &rarr;</a>
+    </div>
+    <div class="yu-news">
+      {{ range . }}
+        <a class="yu-news-item" href="{{ .RelPermalink }}">
+          <time class="yu-news-date" datetime="{{ .Date.Format "2006-01-02" }}">
+            {{ .Date.Format (site.Params.dateFormat | default "2 January 2006") }}
+          </time>
+          <span class="yu-news-title">{{ .Title | emojify }}</span>
+        </a>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
+
+{{/* ------------------------------------------ 5. SELECTED PUBLICATIONS */}}
+{{ $pubs := where (hugo.Data.publications | default slice) "featured" true }}
+{{ with $pubs }}
+  <section class="yu-section">
+    <div class="yu-section-head">
+      <h2>Selected publications</h2>
+      <a class="yu-more" href="{{ "publications/" | relLangURL }}">Full list &rarr;</a>
+    </div>
+    <div class="yu-pubs">
+      {{ range first 4 (sort . "year" "desc") }}
+        {{ partial "yu/publication.html" . }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
+
+{{/* ------------------------------------------------------- 6. THE TEAM */}}
+{{ $groups := partial "yu/team-groups.html" (dict "includeAlumni" false) }}
+{{ $people := slice }}
+{{ range $groups }}{{ $people = $people | append .people }}{{ end }}
+{{ with $people }}
+  <section class="yu-section">
+    <div class="yu-section-head">
+      <h2>The group</h2>
+      <a class="yu-more" href="{{ "team/" | relLangURL }}">Everyone &rarr;</a>
+    </div>
+    <div class="yu-people">
+      {{ range first 6 . }}
+        {{ partial "yu/person.html" . }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}
+
+{{/* --------------------------------------------------- 7. JOIN US BANNER */}}
+{{ with .Params.join }}
+  <section class="yu-section">
+    <div class="yu-cta">
+      <div>
+        <h2>{{ .title | default "Join the group" }}</h2>
+        <p>{{ .text | markdownify }}</p>
+      </div>
+      {{ with .buttons }}
+        <div class="yu-hero-actions" style="margin-top:0">
+          {{ range . }}
+            {{ partial "yu/button.html" (dict "url" .url "label" .label "style" .style) }}
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

@@ -5,7 +5,7 @@ title: "Zhu Group"
 heroEyebrow: "University of Wollongong"
 heroLead: "We develop coarse-grained models and computational methods that connect molecular detail to the length and time scales where materials actually behave."
 # Put a wide image at assets/img/hero.jpg (~1600px). Delete the line for a plain background.
-heroImage: "img/hero.jpg"
+heroImage: "img/death_valley.png"
 heroButtons:
   - label: "Our research"
     url: "/research/"

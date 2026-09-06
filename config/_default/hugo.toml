@@ -20,7 +20,7 @@ buildFuture = false
 # Sections that count as "content" for lists/recent items
 mainSections = ["news"]
 
-# googleAnalytics = "G-XXXXXXXXX"
+googleAnalytics = "G-DYFMKCQDT7"
 
 [pagination]
   pagerSize = 20

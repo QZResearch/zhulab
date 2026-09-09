@@ -18,7 +18,7 @@ education:
   - degree: "MSc in Technology in Drug Design"
     org: "University College London"
     years: "2025"
-  - degree: "Pharmacology & Biochemistry"
+  - degree: "BSc in Pharmacology & Biochemistry"
     org: "University of Strathclyde"
     years: "2024"
   - degree: "BSc in Pharmacy"

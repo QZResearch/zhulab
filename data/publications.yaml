@@ -111,7 +111,7 @@
   tags: ["mechanisms understanding"]
 
 - title: "LightChem: A Lightweight Domain-Specific Language Model for Molecular Property and Reaction Prediction in Chemistry"
-  authors: "Y. Zhang, J. Zhang, Y. Gu, Q. Tao, L. He, D. Li, Y. Zhang, D. Fan, Y. Gao, J. Sun, J. Chen, R. Shi, Z. Wu, Q. Jia, L. Zheng, S. Yuan, F. Yang, Y. Chen, D. Zheng, Y. Liu, Y. Cai, Z. Gu, C. Zhang, B. Cai, G. Li, T. Zhang, Y. Zhou, Y. Liu, T. Zhang, S. Xing, Z. Li, X. Su, D. Fan, H. Qian, X. Li, B. Zhang, Y. Xiao, X. Liu, Y. Zhu, Q. Zhu, Q. Liu, S. Chen, J. Wen, Z. Yu, G. Zeng, Y. Liang, Y. Wang, W. Xu, J. Wang, M. Yang, Y. Gao, S. Li, Y. Shi, X. Chen, H. Dong, W. Li, J. Ma, G. Wang"
+  authors: "Yu Zhang, J. Zhang, Y. Gu, Q. Tao, L. He, D. Li, Yijian Zhang, Dingwen Fan, Yijie Gao, J. Sun, J. Chen, R. Shi, Z. Wu, Q. Jia, L. Zheng, S. Yuan, F. Yang, Y. Chen, D. Zheng, Yilin Liu, Y. Cai, Z. Gu, C. Zhang, B. Cai, G. Li, Tianyu Zhang, Y. Zhou, Yuang Liu, Tianyue Zhang, S. Xing, Z. Li, X. Su, Dong Fan, H. Qian, X. Li, B. Zhang, Y. Xiao, X. Liu, Y. Zhu, Q. Zhu, Q. Liu, S. Chen, J. Wen, Z. Yu, G. Zeng, Y. Liang, Y. Wang, W. Xu, J. Wang, M. Yang, Yang Gao, S. Li, Y. Shi, X. Chen, H. Dong, W. Li, J. Ma, G. Wang"
   year: 2025
   doi: "10.26434/chemrxiv-2025-wd80w"
   tags: ["machine learning", "properties prediction"]
@@ -179,7 +179,6 @@
   year: 2023
   doi: "10.1021/acs.jcim.3c01153"
   tags: ["method development"]
-  #featured: true
 
 - title: "Grid-Robust Efficient Neural Interface Model for Universal Molecule Surface Construction from Point Clouds"
   authors: "Y. Wu, H. Wei, Q. Zhu, R. Luo"
@@ -223,8 +222,8 @@
   pages: "6353–6365"
   year: 2023
   doi: "10.1021/acs.jctc.3c00659"
-  featured: true
   tags: ["method development", "polarisable force field"]
+  featured: true
 
 - title: "Treating Polarization Effects in Charged and Polar Bio-Molecules Through Variable Electrostatic Parameters"
   authors: "Q. Zhu, Y. Ge, W. Li, J. Ma"
@@ -291,7 +290,7 @@
   featured: true
 
 - title: "Nitrogen reduction reaction energy and pathways in metal-zeolites: deep learning and explainable machine learning with local acidity and hydrogen bonding features"
-  authors: "Y. Gu, Q. Zhu, Z. Liu, C. Fu, J. Wu, Q. Zhu, Q. Jia, J. Ma"
+  authors: "Y. Gu, Qin Zhu, Z. Liu, C. Fu, J. Wu, Qiang Zhu, Q. Jia, J. Ma"
   journal: "Journal of Materials Chemistry A"
   volume: "10"
   pages: "14976–14988"
@@ -300,7 +299,7 @@
   tags: ["mechanism understanding"]
 
 - title: "Surface Stability and Morphology of Calcium Phosphate Tuned by pH Values and Lactic Acid Additives: Theoretical and Experimental Study"
-  authors: "H. Chen, C. Lv, L. Guo, M. Ma, X. Li, Z. Lan, J. Huo, H. Dong, X. Zhu, Q. Zhu, Y. Gu, Z. Liu, J. Liu, H. Chen, X. Guo, J. Ma"
+  authors: "Hongwei Chen, C. Lv, L. Guo, M. Ma, X. Li, Z. Lan, J. Huo, H. Dong, X. Zhu, Q. Zhu, Y. Gu, Z. Liu, J. Liu, Hangrong Chen, X. Guo, J. Ma"
   journal: "ACS Applied Materials &amp; Interfaces"
   volume: "14"
   pages: "4836–4851"

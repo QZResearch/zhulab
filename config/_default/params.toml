@@ -20,7 +20,9 @@ faviconVersion = "1"
 
 fingerprintAlgorithm = "sha512"
 # Names highlighted in publication author lists
-groupAuthors = ["Q. Zhu"]
+# Where two co-authors share an initial the importer writes both names out in
+# full, so the full form has to be listed here too (see scripts/sync_publications.py).
+groupAuthors = ["Q. Zhu", "Qiang Zhu"]
 
 # Order of the headings on /team/ (anything else is appended at the end)
 teamGroups = [

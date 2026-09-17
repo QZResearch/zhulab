@@ -20,6 +20,7 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 try:
@@ -203,48 +204,82 @@ def delatex(s: str) -> str:
 PARTICLES = {"van", "von", "de", "der", "den", "di", "da", "del", "della", "le", "la", "du", "dos", "ter"}
 
 
-def format_author(raw: str) -> str:
-    """'Zhu, Qiang' or 'Qiang Zhu' -> 'Q. Zhu'."""
-    raw = delatex(raw).strip()
+def split_name(raw: str):
+    """'Zhu, Qiang' or 'Qiang Zhu' -> ('Qiang', 'Zhu'). None for 'others'."""
+    raw = " ".join(delatex(raw).split())
     if not raw:
-        return ""
+        return None
     if raw.lower() == "others":
-        return "et al."
+        return None
 
     if "," in raw:
         last, _, first = raw.partition(",")
-        last, first = last.strip(), first.strip()
-    else:
-        words = raw.split()
-        if len(words) == 1:
-            return words[0]
-        # pull any lowercase particles into the surname
-        idx = len(words) - 1
-        for k in range(len(words) - 2, -1, -1):
-            if words[k].lower() in PARTICLES:
-                idx = k
-            else:
-                break
-        last = " ".join(words[idx:])
-        first = " ".join(words[:idx])
+        return first.strip(), last.strip()
 
-    initials = []
-    for part in re.split(r"[\s.]+", first):
+    words = raw.split()
+    if len(words) == 1:
+        return "", words[0]
+    # pull any lowercase particles into the surname
+    idx = len(words) - 1
+    for k in range(len(words) - 2, -1, -1):
+        if words[k].lower() in PARTICLES:
+            idx = k
+        else:
+            break
+    return " ".join(words[:idx]), " ".join(words[idx:])
+
+
+def _initials(given: str) -> str:
+    out = []
+    for part in re.split(r"[\s.]+", given):
         part = part.strip("-")
         if not part:
             continue
         if "-" in part:
-            initials.append("-".join(p[0].upper() + "." for p in part.split("-") if p))
+            out.append("-".join(p[0].upper() + "." for p in part.split("-") if p))
         else:
-            initials.append(part[0].upper() + ".")
-    return (" ".join(initials) + " " + last).strip()
+            out.append(part[0].upper() + ".")
+    return " ".join(out)
+
+
+def format_author(raw: str) -> str:
+    """'Zhu, Qiang' -> 'Q. Zhu'."""
+    if delatex(raw).strip().lower() == "others":
+        return "et al."
+    parsed = split_name(raw)
+    if not parsed:
+        return ""
+    given, last = parsed
+    return (_initials(given) + " " + last).strip()
+
+
+def format_author_full(raw: str) -> str:
+    """'Zhu, Qiang' -> 'Qiang Zhu'. Used only to break up an initial clash."""
+    parsed = split_name(raw)
+    if not parsed:
+        return ""
+    given, last = parsed
+    return (given + " " + last).strip()
 
 
 def format_authors(raw: str) -> str:
+    """Initials throughout, except where two co-authors would collapse onto the
+    same initial — 'Zhu, Qin' and 'Zhu, Qiang' both give 'Q. Zhu'. Those are
+    written out in full, which is the normal bibliographic fix and also the only
+    way the site can tell a group member from a namesake."""
     if not raw:
         return ""
-    parts = re.split(r"\s+and\s+", raw)
-    return ", ".join(filter(None, (format_author(p) for p in parts)))
+    parts = [p for p in re.split(r"\s+and\s+", raw) if p.strip()]
+    short = [format_author(p) for p in parts]
+    clashes = {n for n, c in Counter(short).items() if c > 1 and n and n != "et al."}
+
+    rendered = []
+    for part, name in zip(parts, short):
+        if name in clashes:
+            rendered.append(format_author_full(part) or name)
+        else:
+            rendered.append(name)
+    return ", ".join(filter(None, rendered))
 
 
 def format_pages(raw: str) -> str:

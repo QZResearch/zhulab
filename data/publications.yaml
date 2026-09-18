@@ -38,6 +38,7 @@
   year: 2026
   doi: "10.1021/acs.jcim.6c01001"
   tags: ["mechanisms understanding"]
+  code: "https://github.com/QZResearch/Abeta42"
 
 - title: "Relay Storage of Protons and Zinc Ions Enables Practical High‐Mass‐Loading Organic Electrodes"
   authors: "X. Yu, S. Yuan, L. Yan, T. Kong, K. Zhou, Y. Qi, Q. Zhu, Z. Li, P. Wang, S. Gu, J. Ma, Y. Wang"
@@ -224,6 +225,7 @@
   doi: "10.1021/acs.jctc.3c00659"
   tags: ["method development", "polarisable force field"]
   featured: true
+  code: "https://github.com/QZResearch/pyresp_gen"
 
 - title: "Treating Polarization Effects in Charged and Polar Bio-Molecules Through Variable Electrostatic Parameters"
   authors: "Q. Zhu, Y. Ge, W. Li, J. Ma"

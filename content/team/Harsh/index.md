@@ -27,7 +27,10 @@ experience:
   - role: "Researcher"
     org: "Tata Consultancy Services Research"
     years: "2022 – 2026"
-links: []
+links: 
+  - name: "GitHub"
+    url: "https://github.com/HarshVP01"
+    icon: "github"
 ---
 
 <!-- Placeholder. A paragraph on the project — the question, the method, the

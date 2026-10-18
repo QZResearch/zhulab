@@ -24,7 +24,10 @@ education:
   - degree: "BSc in Pharmacy"
     org: "China Pharmaceutical University"
     years: "2024"
-links: []
+links:
+  - name: "GitHub"
+    url: "https://github.com/JaytonKogeru"
+    icon: "github"
 ---
 
 

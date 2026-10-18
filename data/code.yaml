@@ -1,0 +1,15 @@
+# Open-source repositories. The Code section only appears once there is at
+# least one entry here, so an empty file simply hides it.
+#
+# Fields: name, description, url, language, license, paper, pinned — only
+# `name` is required. `paper` adds a second link on the card, back to the
+# publication. `pinned: true` floats the entry to the top of the page and
+# gives its card an accent border; everything else keeps the order it has
+# in this file, so you can also just move a block up.
+
+- name: "pyresp_gen"
+  description: "Builds the first- and second-stage input files for PyRESP automatically, so RESP charge fitting no longer has to be set up by hand."
+  url: "https://github.com/csu1505110121/pyresp_gen"
+  language: "Python"
+  pinned: true
+

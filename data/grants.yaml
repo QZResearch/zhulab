@@ -1,0 +1,17 @@
+# Grants, newest first (the page sorts by `year` anyway).
+# Fields: title, funder, scheme, amount, years, role, people, url — all optional
+# except title. Leave `amount` out if you'd rather not publish figures.
+
+- title: "Molecular Horizons ECR Collaborative Grant"
+  funder: "Molecular Horizons, University of Wollongong"
+  amount: "A$5,000"
+  year: 2026
+  years: "2026"
+  people: "Q. Zhu, D. Do-Ha"
+
+- title: "EMCR Near-Miss Grant"
+  funder: "Molecular Horizons, University of Wollongong"
+  amount: "A$30,000"
+  year: 2026
+  years: "2026"
+  people: "Q. Zhu"

@@ -811,3 +811,19 @@ body.yu-lb-open { overflow: hidden; }
   color: var(--yu-accent);
   border-bottom-color: var(--yu-accent);
 }
+
+/* ---------- resources: pinned marker ---------- */
+
+/* A pinned repository sits first in the list and carries a small pin beside
+   its name, the way GitHub marks a pinned repo. */
+.yu-pin {
+  display: inline-block;
+  width: 0.85rem;
+  height: 0.85rem;
+  margin-left: 0.5rem;
+  color: var(--yu-accent);
+  opacity: 0.8;
+  vertical-align: -0.06em;
+}
+.yu-pin .icon { width: 100%; height: 100%; }
+.yu-pin svg { width: 100%; height: 100%; fill: currentColor; }

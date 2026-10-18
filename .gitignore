@@ -1,5 +1,12 @@
-public/
-resources/
-.hugo_build.lock
+# Hugo build output and caches — anchored with a leading slash so these only
+# match at the project root. Without it, `resources/` would also swallow
+# content/resources/ and layouts/resources/.
+/public/
+/resources/
+/.hugo_build.lock
+
 .DS_Store
 node_modules/
+
+# preview tarballs generated while working on the site
+_rp*.tgz

@@ -1,0 +1,36 @@
+{{ define "main" }}
+  <header class="mt-5 max-w-prose">
+    {{ if .Params.showBreadcrumbs | default (site.Params.article.showBreadcrumbs | default false) }}
+      {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+    {{ with .Content }}<div class="mt-4 prose dark:prose-invert">{{ . }}</div>{{ end }}
+  </header>
+
+  {{ with hugo.Data.grants | default slice }}
+    <section class="yu-section yu-section-top">
+      {{ range sort . "year" "desc" }}
+        {{ $g := . }}
+        <article class="yu-pub">
+          <h3 class="yu-pub-title">
+            {{ with $g.url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ end }}
+              {{ $g.title }}
+            {{ with $g.url }}</a>{{ end }}
+          </h3>
+          {{ with $g.people }}<p class="yu-pub-authors">{{ . }}</p>{{ end }}
+          <p class="yu-pub-venue">
+            {{ with $g.funder }}<em>{{ . }}</em>{{ end }}
+            {{ with $g.scheme }}&middot; {{ . }}{{ end }}
+            {{ with $g.amount }}&middot; <strong>{{ . }}</strong>{{ end }}
+            {{ with (or $g.years $g.year) }}&middot; {{ . }}{{ end }}
+            {{ with $g.role }}&middot; {{ . }}{{ end }}
+          </p>
+        </article>
+      {{ end }}
+    </section>
+  {{ else }}
+    <p class="mt-8 text-neutral-500 dark:text-neutral-400">Nothing listed yet.</p>
+  {{ end }}
+
+  <div class="yu-profile-back"><a href="{{ "resources/" | relLangURL }}">&larr; Resources</a></div>
+{{ end }}

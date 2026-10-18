@@ -1,0 +1,45 @@
+{{ define "main" }}
+  <header class="mt-5 max-w-prose">
+    {{ if .Params.showBreadcrumbs | default (site.Params.article.showBreadcrumbs | default false) }}
+      {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+    {{ with .Content }}<div class="mt-4 prose dark:prose-invert">{{ . }}</div>{{ end }}
+  </header>
+
+  {{ $repos := hugo.Data.code | default slice }}
+  {{/* `pinned: true` floats an entry to the front; everything else keeps the
+       order it has in data/code.yaml. */}}
+  {{ $ordered := slice }}
+  {{ with where $repos "pinned" true }}{{ $ordered = $ordered | append . }}{{ end }}
+  {{ with where $repos "pinned" "!=" true }}{{ $ordered = $ordered | append . }}{{ end }}
+
+  {{ with $ordered }}
+    <section class="yu-section yu-section-top">
+      {{ range . }}
+        {{ $r := . }}
+        <article class="yu-pub">
+          <h3 class="yu-pub-title">
+            {{ with $r.url }}<a href="{{ . }}" target="_blank" rel="noopener">{{ end }}
+              {{ $r.name }}
+            {{ with $r.url }}</a>{{ end }}
+            {{ if $r.pinned }}
+              <span class="yu-pin" title="Pinned" aria-label="Pinned">{{ partial "icon.html" "pin" }}</span>
+            {{ end }}
+          </h3>
+          {{ with $r.description }}<p class="yu-pub-authors">{{ . }}</p>{{ end }}
+          <p class="yu-pub-venue">
+            {{ with $r.language }}<em>{{ . }}</em>{{ end }}
+            {{ with $r.license }}&middot; {{ . }}{{ end }}
+            {{ with $r.url }}&middot; <a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
+            {{ with $r.paper }}&middot; <a href="{{ . }}" target="_blank" rel="noopener">Paper</a>{{ end }}
+          </p>
+        </article>
+      {{ end }}
+    </section>
+  {{ else }}
+    <p class="mt-8 text-neutral-500 dark:text-neutral-400">Nothing listed yet.</p>
+  {{ end }}
+
+  <div class="yu-profile-back"><a href="{{ "resources/" | relLangURL }}">&larr; Resources</a></div>
+{{ end }}

@@ -6,7 +6,7 @@ weight: 10
 pubName: "Q. Zhu"
 email: "qiangzhu@uow.edu.au"
 office: "Building 41, Room 116.F1"
-avatar: "Qiang_PhD.jpg"                            # e.g. "avatar.jpg" next to this file
+avatar: "QZ_UOW.jpg"                            # e.g. "avatar.jpg" next to this file
 interests:
   - "Coarse-grained force fields tailored for biomolecular condensates"
   - "Methodological Development in Enhanced Sampling Techniques"
